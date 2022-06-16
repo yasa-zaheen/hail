@@ -11,11 +11,13 @@ import NavOptions from "../components/NavOptions";
 
 // Components
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   let colorScheme = useColorScheme();
 
   return (
-    <View style={tw`p-5`}>
+    <View
+      style={[colorScheme == "dark" ? tw`bg-black` : tw`bg-white`, tw`p-5`]}
+    >
       {/* Header */}
       <Text
         style={[
@@ -27,7 +29,7 @@ const HomeScreen = () => {
       </Text>
 
       {/* NavOptions */}
-      <NavOptions />
+      <NavOptions navigation={navigation} />
     </View>
   );
 };

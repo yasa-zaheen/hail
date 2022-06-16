@@ -14,17 +14,17 @@ const data = [
     id: "123",
     title: "Hail a ride",
     image: "https://links.papareact.com/3pn",
-    screen: "MapScreen",
+    screen: "Map",
   },
   {
     id: "456",
     title: "Order food",
     image: "https://links.papareact.com/28w",
-    screen: "EatsScreen",
+    screen: "Eats",
   },
 ];
 
-const NavOptions = () => {
+const NavOptions = ({ navigation }) => {
   let colorScheme = useColorScheme();
 
   return (
@@ -37,6 +37,9 @@ const NavOptions = () => {
             colorScheme == "dark" ? tw`bg-gray-800` : tw`bg-gray-100`,
             tw`mr-5 mt-5 rounded-xl p-5 flex items-center justify-center`,
           ]}
+          onPress={() => {
+            navigation.navigate(item.screen);
+          }}
         >
           <Image
             style={{
